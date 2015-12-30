@@ -1,0 +1,43 @@
+[main]
+site=test1
+datastore=leapi
+
+[leapi]
+module=lewas.leapi.leapiStore
+host=http://localhost:5000
+password=this_is_for_local_log
+endpoint=/sites/{site_id}/instruments/{instrument_name}/observations
+storage=./requests
+
+[filestore]
+module=lewas.stores.FileStore
+
+[weather_station]
+dev=/dev/weather_station
+timeout=1
+baud=19200
+
+[sonde]
+dev=/dev/sonde
+baud=19200
+timeout=3
+xonxoff=0
+
+[argonaut]
+dev=/dev/argonaut
+baud=9600
+timeout=1
+
+[raingauge]
+name=tipping_raingauge
+inches_per_tip=0.01
+# report interval in seconds
+report_interval=5
+# units
+units=in/h
+parser=raingauge.parser
+# inpin and outpin are the GPIO pins that the
+# raingauge wires are connected to. It doesn't
+# really matter which is in and which is out
+inpin=24
+outpin=26

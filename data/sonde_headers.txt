@@ -1,0 +1,4 @@
+  Time   Temp     pH SpCond    LDO%     LDO    ORP  IBatt  TurbSC  Dep100 
+HHMMSS     �C  Units  mS/cm     Sat    mg/l     mV  Volts     NTU  meters 
+
+
