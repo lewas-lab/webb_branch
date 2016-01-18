@@ -57,10 +57,11 @@ def datasource(config):
         return raingauge_reader(RandomAccumulator(0,5), interval)
     inpin = config['inpin']
     outpin = config['outpin']
+    bouncetime = config.get('bouncetime', 300)
 
     pins = [ rpi.inpin(inpin, pull_up_down=GPIO.PUD_DOWN),
              rpi.outpin(outpin, GPIO.HIGH) ]
-    source = GPIOEventSource(pins, interval=interval, direction=GPIO.RISING, bouncetime=200)
+    source = GPIOEventSource(pins, interval=interval, direction=GPIO.RISING, bouncetime=bouncetime)
     return source 
 
 class RainGauge(Instrument):
